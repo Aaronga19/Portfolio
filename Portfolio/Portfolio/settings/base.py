@@ -3,9 +3,7 @@ from unipath import Path
 import json
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-
 BASE_DIR = Path(__file__).ancestor(3)
-
 # JSON SECRET
 
 with open("secret.json") as f:
@@ -19,10 +17,7 @@ def get_secret(secret_name, secrets=secret):
         raise ImproperlyConfigured(msg)
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY =  get_secret('SECRET_KEY') # SECRET_KEY = '&1b(^109f6ai4z*u^g9^2ywu%5!z^y9u3)whj)8d7--ko9$4%o'
-
-
-
+SECRET_KEY =  get_secret('SECRET_KEY') 
 # Application definition
 
 DJANGO_APPS = (
@@ -34,10 +29,14 @@ DJANGO_APPS = (
     'django.contrib.staticfiles',
     )
 LOCAL_APPS =(
+    'applications.projects',
+    'applications.users',
+    'applications.home',
+    )
 
-)
 THIRD_PARTY_APPS = (
-
+    'ckeditor',
+    'ckeditor_uploader',
 )
 
 
