@@ -50,17 +50,46 @@ class projects(models.Model):
     contenido = RichTextUploadingField(
         "Contenido", 
         )
-    photos = models.ImageField(
-        "Fotos", 
+    photo_1 = models.ImageField(
+        "Foto 1", 
         upload_to="images/", 
         height_field=None, 
         width_field=None, 
-        max_length=None
+        max_length=None,
+        null = True,
+        blank= True,
         )
-    videos = models.FileField(
-        "Videos", 
+    photo_2 = models.ImageField(
+        "Foto 2", 
+        upload_to="images/", 
+        height_field=None, 
+        width_field=None, 
+        max_length=None,
+        null = True,
+        blank= True,
+        )
+    photo_3 = models.ImageField(
+        "Foto 3", 
+        upload_to="images/", 
+        height_field=None, 
+        width_field=None, 
+        max_length=None,
+        null = True,
+        blank= True,
+        )
+    video_1 = models.FileField(
+        "Video 1", 
         upload_to="videos/", 
-        max_length=100
+        max_length=100,
+        null = True,
+        blank= True,
+        )
+    video_2 = models.FileField(
+        "Video 2", 
+        upload_to="videos/", 
+        max_length=100,
+        null = True,
+        blank= True,
         )
     anexos = models.CharField(
         "Anexos", 
@@ -85,7 +114,7 @@ class projects(models.Model):
         verbose_name_plural = "Proyectos"
     
     def __str__(self):
-        return self.id, self.title
+        return f"{self.id} | {self.title}"
 
 class dependency(models.Model):
 
@@ -146,7 +175,7 @@ class rewards(models.Model):
         dependency, 
         on_delete=models.CASCADE
         )
-    link = models.URLField("Link", max_length=200)
+    link = models.URLField("Link", max_length=200, blank = True)
     
     class Meta:
         """Meta definition for Rewards."""
@@ -156,4 +185,4 @@ class rewards(models.Model):
 
     def __str__(self):
         """Unicode representation of Rewards."""
-        return self.id + self.name
+        return f"{self.id} | {self.name}"
