@@ -1,12 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {{project.all}}
-</body>
-</html>
+{% extends 'projects/base_projects.html' %}
+
+{% load static %}
+
+
+{% block title %}
+    Projects list
+{% endblock title %}
+    
+
+{% block content %}
+
+{% include 'includes/header.html' %}
+
+    <h1 style="border: aqua;">Proyectos</h1>
+    {% for project in projects %}>
+        <tr>
+            <h3>Titulo: <td>{{project.title}}</td></h3>
+            <h3>Categoría: <td>{{project.category}}</td></h3> <!-- Necesita verse el nombre de la categoría -->
+            <h3>Resume: <td>{{project.resume}}</td></h3>
+            <h3>Contenido: <td>{{project.contenido}}</td></h3>
+            <td><h3>Imagen 1: </h3><img src="{{project.photo_1.url}}" width="320" height="240"></td>
+            
+            <td><h3>Video 1: </h3><video width="320" height="240" controls><source src="{{project.video_1.url}}"></src></video></td>
+            
+            <h3>Anexos: <td>{{project.anexos}}</td></h3>
+            <h3>Repositorio Git: <td>{{project.code}}</td></h3>
+        </tr>
+    {% endfor %}
+    <div class="alert alert-primary" role="alert">
+        A simple primary alert—check it out!
+    </div>
+    
+{% include 'includes/footer.html' %}
+
+<!--td><img src="{{project.photo_2.url}}" alt=""></td>
+    <td><img src="{{project.photo_3.url}}" alt=""></td>-->
+<!--<td><video><source src="{{project.video_2.url}}"></src></video></td>-->
+{% endblock content %}
+    

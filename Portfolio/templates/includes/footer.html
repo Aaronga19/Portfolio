@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-</html>
+    <div class="footer-basic">
+        <footer>
+            <div class="social"><a href="{% url 'projects_app:projects-list' %}"><i class="icon ion-social-python"></i></a></div>
+            <div class="social"><a href="https://www.instagram.com/"><i class="icon ion-social-whatsapp"></i></a><a href="https://www.linkedin.com/in/aar%C3%B3n-ju%C3%A1rez-6298561a4/"><i class="icon ion-social-linkedin"></i></a><a href="https://github.com/Aaronga19"><i class="icon ion-social-github"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a></div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="{% url 'home_app:home_page' %}">Home</a></li>
+                <li class="list-inline-item"><a href="{% url 'projects_app:projects-list' %}">Projects</a></li>
+                <li class="list-inline-item"><a href="#">About me</a></li>
+                <li class="list-inline-item"><a href="#">Contact</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">Aaron's portfolio © 2021</p>
+        </footer>
+    </div>
+    

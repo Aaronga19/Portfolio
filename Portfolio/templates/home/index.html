@@ -1,11 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aaron's portfolio</title>
-</head>
-<body>
-    <h1>Home Page</h1>
-</body>
+{% extends 'home/base_home.html' %}
+
+{% load static %}
+
+    {% block title %}
+        Aaron's portfolio
+    {% endblock title %}
+
+
+{% block content %}
+{% include 'includes/header.html' %}
+    
+    <div class="alert alert-primary" role="alert">
+        A simple primary alert—check it out!
+    </div>
+{% include 'includes/footer.html' %}
+
+{% endblock content %}
+    
+
+    
+    
