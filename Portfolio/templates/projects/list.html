@@ -12,13 +12,13 @@
 
 {% include 'includes/header.html' %}
 
-    <h1 style="border: aqua;">Proyectos</h1>
+    <h1 style="color:grey; align-items: center;">Proyectos</h1>
     {% for project in projects %}>
         <tr>
             <h3>Titulo: <td>{{project.title}}</td></h3>
-            <h3>Categoría: <td>{{project.category}}</td></h3> <!-- Necesita verse el nombre de la categoría -->
+            <h3>Categoría: <td>{{project.get_category_display}}</td></h3> <!-- Necesita verse el nombre de la categoría -->
             <h3>Resume: <td>{{project.resume}}</td></h3>
-            <h3>Contenido: <td>{{project.contenido}}</td></h3>
+            <h3>Contenido: <td>{{project.contenido|safe}}</td></h3>
             <td><h3>Imagen 1: </h3><img src="{{project.photo_1.url}}" width="320" height="240"></td>
             
             <td><h3>Video 1: </h3><video width="320" height="240" controls><source src="{{project.video_1.url}}"></src></video></td>
