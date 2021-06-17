@@ -6,3 +6,5 @@ from .models import *
 admin.site.register(projects)
 admin.site.register(dependency)
 admin.site.register(rewards)
+admin.site.register(languages)
+admin.site.register(framework)

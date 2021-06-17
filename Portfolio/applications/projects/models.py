@@ -6,6 +6,51 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 
+class languages(models.Model):
+    """Model definition for Languages."""
+
+    name = models.CharField(
+        'nombre', 
+        max_length=20,
+        unique=True,
+        blank=False, 
+        null=False
+        )
+    typed = models.BooleanField(
+        'Tipado',
+        blank=False,
+        null = False
+        )
+    class Meta:
+        """Meta definition for Languages."""
+
+        verbose_name = 'Lenguaje'
+        verbose_name_plural = 'Lenguajes'
+
+    def __str__(self):
+        """Unicode representation of Languages."""
+        return f"{self.id} | {self.name}"
+
+class framework(models.Model):
+    """Model definition for Frameworks."""
+
+    # TODO: Define fields here
+    name = models.CharField(
+        'nombre', 
+        max_length=20,
+        unique=True,
+        blank=False, 
+        null=False
+        )
+    class Meta:
+        """Meta definition for Framework."""
+
+        verbose_name = 'Framework'
+        verbose_name_plural = 'Frameworks'
+
+    def __str__(self):
+        """Unicode representation of Frameworks."""
+        return f"{self.id} | {self.name}"
 
 
 
@@ -29,7 +74,7 @@ class projects(models.Model):
 
     title = models.CharField(
         "Título", 
-        max_length=50, 
+        max_length=200, 
         null=False, 
         unique=True
         )
@@ -56,8 +101,8 @@ class projects(models.Model):
         height_field=None, 
         width_field=None, 
         max_length=None,
-        null = True,
-        blank= True,
+        null = False,
+        blank= False,
         )
     photo_2 = models.ImageField(
         "Foto 2", 
@@ -100,6 +145,11 @@ class projects(models.Model):
         max_length=200, 
         unique = True
         )
+
+    languages = models.ManyToManyField(languages)
+
+    frameworks = models.ManyToManyField(framework)
+
     public = models.BooleanField(
         "Público", 
         default=True
@@ -186,3 +236,5 @@ class rewards(models.Model):
     def __str__(self):
         """Unicode representation of Rewards."""
         return f"{self.id} | {self.name}"
+
+

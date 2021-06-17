@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from .models import projects
-
+from django.utils import timezone
 # Create your views here.
 
 
@@ -23,3 +23,5 @@ class ProjectsDetailView(DetailView):
     model = projects
     template_name = "projects/detail.html"
     context_object_name = 'projects'
+    
+    

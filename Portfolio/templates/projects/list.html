@@ -12,25 +12,30 @@
 
 {% include 'includes/header.html' %}
 
-    <h1 style="color:grey; align-items: center;">Proyectos</h1>
+    <h1 style="color:grey; text-align: center;">Proyectos</h1>
     {% for project in projects %}>
-        <tr>
-            <h3>Titulo: <td>{{project.title}}</td></h3>
-            <h3>Categoría: <td>{{project.get_category_display}}</td></h3> <!-- Necesita verse el nombre de la categoría -->
-            <h3>Resume: <td>{{project.resume}}</td></h3>
-            <h3>Contenido: <td>{{project.contenido|safe}}</td></h3>
-            <td><h3>Imagen 1: </h3><img src="{{project.photo_1.url}}" width="320" height="240"></td>
-            
-            <td><h3>Video 1: </h3><video width="320" height="240" controls><source src="{{project.video_1.url}}"></src></video></td>
-            
-            <h3>Anexos: <td>{{project.anexos}}</td></h3>
-            <h3>Repositorio Git: <td>{{project.code}}</td></h3>
-        </tr>
+        <div class="card" style="width: 18rem; text-align: cente; margin: auto;">
+            <img src="{{project.photo_1.url}}" class="card-img-top" width="320" height="240">
+            <div class="card-body">
+            <h5 class="card-title">{{project.title}}</h5>
+            <p class="card-text">{{project.resume| truncatechars:100}}</p>
+            <p class="card-text">Tag: <i>{{project.get_category_display}}</i></p>
+            <a href="{% url 'projects_app:project-detail' project.id %}" class="btn btn-primary">Read More</a>
+            </div>
+        </div>
     {% endfor %}
     <div class="alert alert-primary" role="alert">
         A simple primary alert—check it out!
     </div>
-    
+    <nav aria-label="..."  style= "padding-left: 47%;">
+        <ul class="pagination pagination-sm">
+          <li class="page-item active" aria-current="page">
+            <span class="page-link">1</span>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+        </ul>
+    </nav>
 {% include 'includes/footer.html' %}
 
 <!--td><img src="{{project.photo_2.url}}" alt=""></td>

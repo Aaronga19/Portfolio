@@ -8,6 +8,11 @@ urlpatterns = [
         "projects/",
         views.ProjectsListView.as_view(),
         name="projects-list",
+    ),
+    path(
+        "projects/<pk>/",
+        views.ProjectsDetailView.as_view(),
+        name="project-detail",
     )
 
 
