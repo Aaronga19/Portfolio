@@ -1,0 +1,25 @@
+{% extends 'users/base_users.html' %}
+
+{% load static %}
+
+    {% block title %}
+       Contact
+    {% endblock title %}
+
+
+{% block content %}
+{% include 'includes/header.html' %}
+    <form action="" method="POST">{% csrf_token %}
+        <div style="padding-right: auto;">
+        {{form.as_ul}}
+        </div>
+        <div>
+            <button type="submit" class="btn btn-outline-dark">Enviar</button>
+        </div>
+    </form>
+    
+
+{% include 'includes/footer.html' %}
+
+{% endblock content %}
+    

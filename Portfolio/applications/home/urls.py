@@ -14,11 +14,6 @@ urlpatterns = [
         views.AboutMe.as_view(),
         name="about_me",
     ),
-    path(
-        "contact",
-        views.ContactFormTemplate.as_view(),
-        name="contact",
-    ),
 
 
 ]

@@ -6,8 +6,8 @@
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="{% url 'home_app:home_page' %}">Home</a></li>
                 <li class="list-inline-item"><a href="{% url 'projects_app:projects-list' %}">Projects</a></li>
-                <li class="list-inline-item"><a href="#">About me</a></li>
-                <li class="list-inline-item"><a href="#">Contact</a></li>
+                <li class="list-inline-item"><a href="{% url 'home_app:about_me' %}">About me</a></li>
+                <li class="list-inline-item"><a href="{% url 'users_app:contact' %}">Contact</a></li>
                 <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
             </ul>
             <p class="copyright">Aaron's portfolio © 2021</p>

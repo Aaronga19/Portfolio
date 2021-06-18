@@ -15,7 +15,5 @@ class HomePage(TemplateView):
 class AboutMe(TemplateView):
     template_name = "home/me.html"
 
-class ContactFormTemplate(FormView):
-    form_class = contactForm
-    template_name = "home/contact.html"
+
 

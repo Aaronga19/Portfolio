@@ -1,4 +1,7 @@
+from django import forms
+from applications.projects.models import *
 
 
-class contactForm():
+
+class contactForm(forms.ModelForm):
     pass
