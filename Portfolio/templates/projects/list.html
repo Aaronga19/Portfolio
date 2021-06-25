@@ -11,35 +11,120 @@
 {% block content %}
 
 {% include 'includes/header.html' %}
+<!-- Buscador  -->
+<div class="container">
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <form class="d-flex" method="GET">{% csrf_token %}
+            <input class="form-control me-2" type="search" placeholder="Search by Name" aria-label="Search" id="kword" name="kword">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
 
-    <h1 style="color:grey; text-align: center;">Proyectos</h1>
-    {% for project in projects %}>
-        <div class="card" style="width: 18rem; text-align: cente; margin: auto;">
+            <!-- Language by list -->
+            <div class="dropdown d-flex justify-content-end">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="True">
+                Languages
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+
+                    {% for language in languages %}
+                        
+                        <li><a href="?language={{ language.name }}" class="dropdown-item" name="language" id="language">{{language.name}}</a></li>
+     
+                    {% endfor %}
+
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a href="{% url 'projects_app:projects-list' %}" class="dropdown-item">All</a></li>   
+                </ul>
+            </div>
+
+            <!-- Categories by list -->
+            <div class="dropdown d-flex justify-content-end">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="True">
+                Category
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+
+                    {% for value,key in categories %}
+
+                        <li><a href="?category={{ key }}" class="dropdown-item" name="category" id="category">{{value}}</a></li>
+
+                    {% endfor %}
+
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a href="{% url 'projects_app:projects-list' %}" class="dropdown-item">All</a></li>   
+                </ul>
+            </div>
+        </div>    
+    </nav>
+</div>
+<!-- Listado de proyectos realizados-->
+<div class="container">
+    <h1 style="color:grey; text-align: center;">Projects</h1>
+    {% for project in projects %}
+        <div class="card" style="width: 18rem; text-align: center; margin: auto;">
             <img src="{{project.photo_1.url}}" class="card-img-top" width="320" height="240">
             <div class="card-body">
             <h5 class="card-title">{{project.title}}</h5>
             <p class="card-text">{{project.resume| truncatechars:100}}</p>
             <p class="card-text">Tag: <i>{{project.get_category_display}}</i></p>
-            <a href="{% url 'projects_app:project-detail' project.id %}" class="btn btn-primary">Read More</a>
+            <a href="{% url 'projects_app:project-detail' project.id %}" class="btn btn-primary d-flex justify-content-center">Read More</a>
             </div>
         </div>
+    {% empty %}
+    <h3 style="color: brown; text-align: center; padding: 20px;">There aren't results</h3>
     {% endfor %}
     <div class="alert alert-primary" role="alert">
         A simple primary alert—check it out!
     </div>
-    <nav aria-label="..."  style= "padding-left: 47%;">
+</div>
+    
+    <!-- Pagination -->
+    <nav aria-label="..."  class="container d-flex justify-content-center">
         <ul class="pagination pagination-sm">
-          <li class="page-item active" aria-current="page">
-            <span class="page-link">1</span>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
+        
+        <!-- Previous page -->
+        
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{page_obj.previous_page_number}}" aria-label="Previous">
+               <span aria-hidden="true"><ion-icon name="arrow-undo-circle-outline"></ion-icon></span>
+            </a>
+        </li>    
+        {% endif %}
+            
+        
+        <!-- Number of pages -->
+
+        {% for pagina in paginator.page_range %}
+        
+        {% ifequal pagina page_obj.number  %} 
+            <li class="page-item active" aria-current="page">
+                <span class="page-link">{{pagina}}</span>
+            </li>
+        {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{pagina}}" aria-label="{{pagina}}">{{pagina}}</a></li>
+        {% endifequal %}
+            
+        {% endfor %}
+        
+        <!-- Next page -->
+        
+        {% if page_obj.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{page_obj.next_page_number}}" aria-label="Next">
+                <ion-icon name="arrow-redo-circle-outline" style="font-size: 16px;"></ion-icon>
+            </a>
+        </li>    
+        {% endif %}
+            
+        
+
         </ul>
     </nav>
+
 {% include 'includes/footer.html' %}
 
-<!--td><img src="{{project.photo_2.url}}" alt=""></td>
-    <td><img src="{{project.photo_3.url}}" alt=""></td>-->
-<!--<td><video><source src="{{project.video_2.url}}"></src></video></td>-->
+
 {% endblock content %}
     

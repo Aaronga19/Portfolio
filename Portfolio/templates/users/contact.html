@@ -9,12 +9,50 @@
 
 {% block content %}
 {% include 'includes/header.html' %}
-    <form action="" method="POST">{% csrf_token %}
-        <div style="padding-right: auto;">
-        {{form.as_ul}}
+    <form action="" method="POST" class="container" style="background-color: gray; border-radius: 10px; margin: auto; border-color: indigo; border: 10px;">{% csrf_token %}
+        <div class="row d-flex justify-content-center align-items-center ">
+
+                <div class="col-xxl-1" style="margin: 10px;">
+                    <p>Name:</p>
+                </div>
+                <div class="col-xxl-5" style="margin: 10px;">
+                    {{form.name}}
+                </div>
+                <div class="col-xxl-1" style="margin: 10px;">
+                    <p>E-mail:</p>
+                </div>
+                <div class="col-xxl-5" style="margin: 10px;">
+                    {{form.email}}
+                </div>
         </div>
-        <div>
-            <button type="submit" class="btn btn-outline-dark">Enviar</button>
+        <div class="row d-flex justify-content-center align-items-center ">
+            <div class="col-xxl-1" style="margin: 10px;">
+                <p>Phone:</p>
+            </div>
+            <div class="col-xxl-2" style="margin: 10px;">
+                {{form.phone}}
+            </div>
+            <div class="col-xxl-1" style="margin: 10px;">
+                <p>Company:</p>
+            </div>
+            <div class="col-xxl-8" style="margin: 10px;">
+                {{form.company}}
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-xl-12 d-flex justify-content-center">
+                <p>Message:</p>
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-xl-12 d-flex justify-content-center" style="height: 200px;">
+                {{form.message}}
+            </div>
+        </div>  
+        <div class="row">
+            <div class="col-xl-12 d-flex justify-content-center">
+                <button type="submit" class="btn btn-outline-dark" style="margin: 10px;">Send</button>
+            </div>
         </div>
     </form>
     
@@ -22,4 +60,3 @@
 {% include 'includes/footer.html' %}
 
 {% endblock content %}
-    

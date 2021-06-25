@@ -7,7 +7,7 @@ class UserContact(models.Model):
     """Model definition for UserContact."""
 
     name = models.CharField(
-        "Nombre", max_length=50, 
+        "Name", max_length=50, 
         )
 
     email = models.EmailField(
@@ -18,14 +18,14 @@ class UserContact(models.Model):
         )
 
     phone = models.CharField(
-        "Telefono", 
+        "Phone", 
         max_length=50,
         blank=True,
         null=True,
         )
 
     company = models.CharField(
-        "Empresa", 
+        "Company", 
         max_length=50,
         default="Personal",
         )

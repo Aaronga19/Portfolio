@@ -89,20 +89,20 @@
     {% endif %}
 
     <div><p>{{projects.anexos}}</p></div>
-    <div><p><a href="{{projects.code}}">Repositorio Git</a></p></div>
+    <div><p><a href="{{projects.code}}" class="alert-link">Repositorio Git</a></p></div>
     
     <div class="container">
       <div class="row">
         <div class="col">
           <h3>Lenguajes usados:</h3>
           {% for language in projects.languages.all %}
-              <p>{{language.name}}</p>
+              <ul>{{language.name}}</ul>
           {% endfor %}
         </div>
         <div class="col">
           <h3>Frameworks usados:</h3>
           {% for framework in projects.frameworks.all %}
-            <p>{{framework.name}}</p>
+            <ul>{{framework.name}}</ul>
           {% endfor %}  
         </div>
         <div class="col">

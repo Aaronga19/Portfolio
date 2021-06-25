@@ -4,6 +4,8 @@ from django.conf import settings
 from django.db.models.deletion import CASCADE
 from ckeditor_uploader.fields import RichTextUploadingField
 
+from .managers import ProjectsManager
+
 # Create your models here.
 
 class languages(models.Model):
@@ -65,38 +67,38 @@ class projects(models.Model):
 
     #
     CATEGORY_CHOICES = (
-        (HardwareDevelop, "Desarollo de hardware"),
-        (SoftwareDevelop, "Desarrollo de software"),
-        (DataSciece, "Ciencia de datos"),
+        (HardwareDevelop, "Hardware Developing"),
+        (SoftwareDevelop, "Software Developing"),
+        (DataSciece, "Data Sciece"),
         (MachineLearning, "Machine Learning"),
-        (ArtificialInteligence, "Inteligencia Artificial")
+        (ArtificialInteligence, "Artificial Inteligence")
     )
 
     title = models.CharField(
-        "Título", 
+        "Title", 
         max_length=200, 
         null=False, 
         unique=True
         )
     category = models.CharField(
-        "Categoría", 
+        "Category", 
         max_length=1,
         choices=CATEGORY_CHOICES
         )
     date = models.DateField(
-        "Fecha", 
+        "Date", 
         auto_now=False, 
         auto_now_add=False
         )
     resume = models.TextField(
-        "Resumen",
+        "Resume",
         max_length=200
         )
     contenido = RichTextUploadingField(
-        "Contenido", 
+        "Content", 
         )
     photo_1 = models.ImageField(
-        "Foto 1", 
+        "Photo 1", 
         upload_to="images/", 
         height_field=None, 
         width_field=None, 
@@ -105,7 +107,7 @@ class projects(models.Model):
         blank= False,
         )
     photo_2 = models.ImageField(
-        "Foto 2", 
+        "Photo 2", 
         upload_to="images/", 
         height_field=None, 
         width_field=None, 
@@ -114,7 +116,7 @@ class projects(models.Model):
         blank= True,
         )
     photo_3 = models.ImageField(
-        "Foto 3", 
+        "Photo 3", 
         upload_to="images/", 
         height_field=None, 
         width_field=None, 
@@ -141,7 +143,7 @@ class projects(models.Model):
         max_length=50
         )
     code = models.URLField(
-        "Código", 
+        "Code", 
         max_length=200, 
         unique = True
         )
@@ -151,36 +153,38 @@ class projects(models.Model):
     frameworks = models.ManyToManyField(framework)
 
     public = models.BooleanField(
-        "Público", 
+        "Public", 
         default=True
         )
     Favorite = models.BooleanField(
-        "Favorito", 
+        "Favorite", 
         default=False
         )
 
     class Meta:
-        verbose_name = "Proyecto"
-        verbose_name_plural = "Proyectos"
+        verbose_name = "Project"
+        verbose_name_plural = "Projects"
     
     def __str__(self):
         return f"{self.id} | {self.title}"
+
+    objects = ProjectsManager()
 
 class dependency(models.Model):
 
     """Model definition for dependency."""
 
     name = models.CharField(
-        "Nombre", 
+        "Name", 
         max_length=100, 
         null=False
         )
     country = models.CharField(
-        "Pais", 
+        "Country", 
         max_length=50
         )
     city = models.CharField(
-        "Ciudad", 
+        "City", 
         max_length=50
         )
     email = models.EmailField(
@@ -188,11 +192,11 @@ class dependency(models.Model):
         max_length=254
         )
     address = models.CharField(
-        "Dirección", 
+        "Adress", 
         max_length=100
         )
     phone = models.CharField(
-        "Telefono", 
+        "Phone", 
         unique=True,
         max_length=20
         )
@@ -200,8 +204,8 @@ class dependency(models.Model):
     class Meta:
         """Meta definition for dependency."""
 
-        verbose_name = 'Dependencia'
-        verbose_name_plural = 'Dependencias'
+        verbose_name = 'Dependency'
+        verbose_name_plural = 'Dependencies'
 
     def __str__(self):
         """Unicode representation of dependency."""
@@ -212,12 +216,12 @@ class rewards(models.Model):
     """Model definition for Rewards."""
 
     name = models.CharField(
-        "Nombre", 
+        "Name", 
         max_length=50, 
         unique=True
         )
     date = models.DateField(
-        "Fecha", 
+        "Date", 
         auto_now=False, 
         auto_now_add=False
         )
@@ -230,8 +234,8 @@ class rewards(models.Model):
     class Meta:
         """Meta definition for Rewards."""
 
-        verbose_name = 'Reconocimiento'
-        verbose_name_plural = 'Reconocimientos'
+        verbose_name = 'Reward'
+        verbose_name_plural = 'Rewards'
 
     def __str__(self):
         """Unicode representation of Rewards."""
