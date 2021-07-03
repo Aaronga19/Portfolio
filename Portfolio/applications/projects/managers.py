@@ -27,4 +27,11 @@ class ProjectsManager(models.Manager):
                 public = True,
             ).order_by('id')
     
+    def find_python(self):
+        
+        return self.filter(
+            languages__name = "Python",
+            public = True,
+        ).order_by('id')
+    
 

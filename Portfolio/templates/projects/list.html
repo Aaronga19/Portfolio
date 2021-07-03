@@ -59,25 +59,33 @@
     </nav>
 </div>
 <!-- Listado de proyectos realizados-->
-<div class="container">
-    <h1 style="color:grey; text-align: center;">Projects</h1>
+<div>
+    <h1 style="color:grey; text-align: center; font-family: Garamond;" class="container pt-4">Projects</h1>
+
     {% for project in projects %}
-        <div class="card" style="width: 18rem; text-align: center; margin: auto;">
-            <img src="{{project.photo_1.url}}" class="card-img-top" width="320" height="240">
-            <div class="card-body">
-            <h5 class="card-title">{{project.title}}</h5>
-            <p class="card-text">{{project.resume| truncatechars:100}}</p>
-            <p class="card-text">Tag: <i>{{project.get_category_display}}</i></p>
-            <a href="{% url 'projects_app:project-detail' project.id %}" class="btn btn-primary d-flex justify-content-center">Read More</a>
-            </div>
-        </div>
+
+    <div class="p-3 container d-flex">
+            <article class=" card d-flex justify-content-center shadow" style="width: 45em; margin: auto;">
+                <div class="card-body row">
+                    <h5 class="card-title col-4 rounded" style="background-color: rgba(72, 163, 133, 0.384);">{{project.title.title}}</h5>
+                    <img src="{{project.photo_1.url}}" class="card-img-bottom col-8" style="border-radius: 5em;" width="1080" height="320">
+                </div>
+                <div class="row">
+                    <p class="card-text col-9 " style="text-align: justify;">{{project.resume| truncatechars:150}}</p>
+                    <p class="card-text col-2 bg-warning m-3" style="border-radius: 20px;">Tag: <i>{{project.get_category_display}}</i></p>
+                </div>
+                    
+                    <a href="{% url 'projects_app:project-detail' project.id %}" class="btn btn-primary d-flex justify-content-center col-3 m-auto">Read More</a>
+               
+            </article>
+    </div>
+        
     {% empty %}
-    <h3 style="color: brown; text-align: center; padding: 20px;">There aren't results</h3>
+    <h3 style="color: brown; text-align: center; padding: 20px; font-family: Aesthetic Violet;">There aren't results</h3>
     {% endfor %}
-    <div class="alert alert-primary" role="alert">
+    <div class="container alert alert-primary col-3" role="alert">
         A simple primary alert—check it out!
     </div>
-</div>
     
     <!-- Pagination -->
     <nav aria-label="..."  class="container d-flex justify-content-center">

@@ -49,11 +49,14 @@ CKEDITOR_CONFIGS = {
     }
 }
 
-# ENVIO DE EMAIL
 
 # EMAIL SETTINGS
-# EMAIL_USE_TLS = True
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_HOST_USER = get_secret('EMAIL')
-# EMAIL_HOST_PASSWORD = get_secret('PASS_EMAIL')
-# EMAIL_PORT = 587
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = get_secret('EMAIL')
+EMAIL_HOST_PASSWORD = get_secret('PASS_EMAIL')
+EMAIL_PORT = 587
+# EMAIL_SUBJECT_PREFIX = '[Test mail]'
+
