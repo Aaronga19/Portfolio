@@ -1,6 +1,6 @@
 <header>
     <!-- Bootstrap Static Header -->
-  <div style="background: url(https://img2.pngio.com/47106360-technology-wallpaperpng-19201200-technology-circuit-board-wallpaper-png-1920_1200.png)" class="jumbotron bg-cover text-white">
+  <div style="background: url(../../static/img/wallpapert_tec.jpg)" class="jumbotron bg-cover text-white">
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="border-radius: 20px; width: 80%; margin: auto;">
         <!-- Container wrapper -->
@@ -26,17 +26,17 @@
             <!-- Left links -->
             <ul class="navbar-nav mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'home_app:home_page' %}">Home</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'home_app:home_page' %}" style="font-family: Aesthetic Violet;">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'projects_app:projects-list' %}">Projects</a>
+                <a class="nav-link" href="{% url 'projects_app:projects-list' %}" style="font-family: Aesthetic Violet;">Projects</a>
               </li>
               <!-- Navbar dropdown -->
                 <li class="nav-item ">
-                    <a class="nav-link" href="{% url 'home_app:about_me' %}" >About Me</a>           
+                    <a class="nav-link" href="{% url 'home_app:about_me' %}" style="font-family: Aesthetic Violet;">About Me</a>           
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'users_app:contact' %}" tabindex="-1" aria-disabled="false"> Contact </a>
+                    <a class="nav-link" href="{% url 'users_app:contact' %}" tabindex="-1" aria-disabled="false" style="font-family: Aesthetic Violet;"> Contact </a>
                 </li>
             </ul>
             <!-- Left links -->
@@ -47,16 +47,16 @@
       </nav>
     <!--Titulo-->
     <div class="container py-5 text-center">
-        <h1 class="display-4 font-weight-bold">Aarón Juárez</h1>
-        <p class="font-italic mb-0">Electric-Electronic Engineer by UNAM.</p>
-        <p class="font-italic">Por mi raza hablará el pinche espiritu alv.
-            <a href="https://www.unam.mx/" class="text-white">
+        <h1 class="display-4 font-weight-bold mainfont" style="font-family: Aesthetic Violet; color: bisque;">Aarón Juárez</h1>
+        <p class="font-italic m-3"><h4 style="color: bisque;">Data Scientist & Backend Developer.</h4></p>
+        <p class="font-italic"><i class="color4">Por mi raza hablará el pinche espiritu alv.</i>
+            <a href="https://www.unam.mx/" class="text-white" style="font-family: Aesthetic Violet; color: bisque;">
                 <p>
-                  <u>UNAN</u>
+                  <u>UNAM</u>
                 </p>
             </a>
         </p>
-        <a href="{% url 'projects_app:projects-list' %}" role="button" class="btn btn-primary px-5">See Projects</a>
+        <a href="{% url 'projects_app:projects-list' %}" role="button" class="btn colorbottonHead px-5" style="font-family: Aesthetic Violet;">See Projects</a>
     </div>
   </div>
 </header>

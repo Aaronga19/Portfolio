@@ -1,0 +1,27 @@
+.color1 {color: #38201c;}
+.color2 {color: #593a2f;}
+.color3 {color: #865f45;}
+.color4 {color: #bb8f5c;}
+.color5 {color: #d6c377;}
+.color1back {background-color: #38201caf;}
+.color2back {background-color: #593a2f;}
+.color3back {background-color: #865f45af;}
+.color4back {background-color: #bb8f5caf;}
+.color5back {background-color: #d6c377;}
+.colorbotton{
+    color: #38201c;
+    background-color: #bb8f5c;
+    border-color: #ca8332;
+}
+.colorbottonHead{
+    color: #38201c;
+    background-color: #bb8f5c;
+    border-color: #ca8332;
+    box-shadow: 0 0 0 0.25rem rgba(231, 185, 34, 0.5)
+}
+.colorbottonHead:hover{
+    color: #f0f0f0;
+}
+.mainfont{
+    font-family: Aesthetic Violet;
+}

@@ -9,107 +9,75 @@
 
 
 {% block content %}
-    <div><p><h1>{{projects.title}}</h1></p></div>
-    <div><p>{{projects.get_category_display}}</p></div>
-    <div><p>{{projects.date}}</p></div>
-    <div><p>{{projects.resume}}</p></div>
-    <div><p>{{projects.contenido|safe}}</p></div>
-
-    <!-- CARROUSEL FOR PHOTOS-->
-
-    <!--<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="padding-bottom: 20px;">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item">
-            <img src="{{...}}" class="d-block w-50" style="margin: auto;">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Some representative placeholder content for the first slide.</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="{{...}}" class="d-block w-50" style="margin: auto;">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p>
-            </div>
-          </div>
-          <div class="carousel-item active">
-            <img src="{{...}}" class="d-block w-50" style="margin: auto;">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>Some representative placeholder content for the third slide.</p>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>-->
-
-    <!--   VIDEOS     -->
-
-    {% if projects.photo_1 %}
-    <div><p><img src="{{projects.photo_1.url}}"></p></div>
-    {% else %}
-    <div><p><h3>No existe ningun archivo asociado</h3></p></div>
-    {% endif %}
+  {% include 'includes/header.html' %}
+  <div class="container">
     
-    {% if projects.photo_2 %}
-    <div><p><img src="{{projects.photo_2.url}}"></p></div>
-    {% else %}
-    <div><p><h3>No existe ningun archivo asociado</h3></p></div>
-    {% endif %}
+    <div class="col-12 d-flex"><h1>{{projects.title}}</h1></div>
+    <div class="row">
+      <div class="col-9"><li>{{projects.get_category_display}}</li></div>
+      <div class="col-3"><ul>{{projects.date}}</ul></div>
+    </div>
+    <div><h4>{{projects.resume}}</h4></div>
+    =======================================================================================================
+    <div class="row border border-4 border-dark">
+    <div class="col-8"><p>{{projects.contenido|safe}}</p></div>
+
+    <div class="col-4 m-0">
+      {% if projects.photo_1 %}
+      <div><p><img src="{{projects.photo_1.url}}" height="300" width="360" class="shadow-lg mb-1 bg-body rounded"></p></div>
+      {% else %}
+      <div><p><h3>No existe ningun archivo asociado</h3></p></div>
+      {% endif %}
       
-    {% if projects.photo_3 %}
-    <div><p><img src="{{projects.photo_3.url}}"></p></div>
-    {% else %}
-    <div><p><h3>No existe ningun archivo asociado</h3></p></div>
-    {% endif %}
+      {% if projects.photo_2 %}
+      <div><p><img src="{{projects.photo_2.url}}" height="300" width="360" class="shadow-lg mb-1 bg-body rounded"></p></div>
+      {% else %}
+      <div><p><h3>No existe ningun archivo asociado</h3></p></div>
+      {% endif %}
+        
+      {% if projects.photo_3 %}
+      <div><p><img src="{{projects.photo_3.url}}" height="300" width="360" class="shadow-lg mb-1 bg-body rounded"></p></div>
+      {% else %}
+      <div><p><h3>No existe ningun archivo asociado</h3></p></div>
+      {% endif %}
+    </div>
+  </div>
 
     {% if projects.video_1 %}
-    <div><p><video src="{{projects.video_1.url}}" controls></video></p></div>
+    <div><p><video src="{{projects.video_1.url}}" controls height="520" width="1024" class="col-12 rounded m-3"></video></p></div>
     {% else %}
     <div><p><h3>No existe ningun archivo asociado</h3></p></div>
     {% endif %}
 
     {% if projects.video_2 %}
-    <div><p><video src="{{projects.video_2.url}}" controls></video></p></div>
+    <div><p><video src="{{projects.video_2.url}}" controls height="520" width="720"></video></p></div>
     {% else %}
     <div><p><h3>No existe ningun archivo asociado</h3></p></div>
     {% endif %}
 
-    <div><p>{{projects.anexos}}</p></div>
-    <div><p><a href="{{projects.code}}" class="alert-link">Repositorio Git</a></p></div>
+    <div class="col-12 d-flex justify-content-center m-2"><p>{{projects.anexos}}</p></div>
+    <div class="col-12 d-flex justify-content-center m-2"><p><a href="{{projects.code}}" class="alert-link">Repositorio Git</a></p></div>
     
     <div class="container">
       <div class="row">
         <div class="col">
           <h3>Lenguajes usados:</h3>
           {% for language in projects.languages.all %}
-              <ul>{{language.name}}</ul>
+              <li>{{language.name}}</li>
           {% endfor %}
         </div>
         <div class="col">
           <h3>Frameworks usados:</h3>
           {% for framework in projects.frameworks.all %}
-            <ul>{{framework.name}}</ul>
+            <li>{{framework.name}}</li>
           {% endfor %}  
         </div>
         <div class="col">
-          Column
+          <h3>Hardware usado:</h3>
         </div>
       </div>
     </div>
+  </div>
     
    
 {% include 'includes/footer.html' %}    

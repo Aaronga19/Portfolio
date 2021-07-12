@@ -57,5 +57,16 @@
     color:#aaa;
     margin-bottom:0;
   }
+
+
   
   /* Credit to https://epicbootstrap.com/snippets/footer-basic */
+
+  /* My styles*/
+
+.mainfont{
+  font-family: Aesthetic Violet;
+}
+body{
+  position: relative;
+}
