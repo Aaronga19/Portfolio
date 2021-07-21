@@ -1,8 +1,11 @@
 .color1 {color: #38201c;}
 .color2 {color: #593a2f;}
 .color3 {color: #865f45;}
+.color3:hover {color: wheat}
 .color4 {color: #bb8f5c;}
+.color4:hover {color: wheat}
 .color5 {color: #d6c377;}
+.color5:hover {color: white}
 .color1back {background-color: #38201caf;}
 .color2back {background-color: #593a2f;}
 .color3back {background-color: #865f45af;}
@@ -24,4 +27,7 @@
 }
 .mainfont{
     font-family: Aesthetic Violet;
+}
+.colorbotton:hover{
+    color: wheat;
 }

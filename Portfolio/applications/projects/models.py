@@ -67,9 +67,9 @@ class projects(models.Model):
 
     #
     CATEGORY_CHOICES = (
-        (HardwareDevelop, "Hardware Developing"),
-        (SoftwareDevelop, "Software Developing"),
-        (DataSciece, "Data Sciece"),
+        (HardwareDevelop, "Hardware Development"),
+        (SoftwareDevelop, "Software Development"),
+        (DataSciece, "Data Science"),
         (MachineLearning, "Machine Learning"),
         (ArtificialInteligence, "Artificial Inteligence")
     )

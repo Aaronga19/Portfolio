@@ -13,33 +13,26 @@
 {% include 'includes/header.html' %}
 <!-- Buscador  -->
 <div class="container">
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
+    <nav class="navbar navbar-light" style="background-color: rgba(201, 164, 125, 0.705);">
+        <div class="container-fluid col-8">
             <form class="d-flex" method="GET">{% csrf_token %}
-            <input class="form-control me-2" type="search" placeholder="Search by Name" aria-label="Search" id="kword" name="kword">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <input class="form-control me-2 m-1" type="search" placeholder="Search by Name" aria-label="Search" id="kword" name="kword">
+            <button class="btn btn-outline-success m-1" type="submit">Search</button>
             </form>
-
+        </div>
             <!-- Language by list -->
-            <div class="dropdown d-flex justify-content-end">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="True">
-                Languages
-                </button>
+            <div class="dropdown col-2 d-flex justify-content-end">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="True">Languages</button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-
-                    {% for language in languages %}
-                        
-                        <li><a href="?language={{ language.name }}" class="dropdown-item" name="language" id="language">{{language.name}}</a></li>
-     
+                    {% for language in languages %}  
+                        <li><a href="?language={{ language.name }}" class="dropdown-item" name="language" id="language">{{language.name}}</a></li>   
                     {% endfor %}
-
                         <li><hr class="dropdown-divider"></li>
                         <li><a href="{% url 'projects_app:projects-list' %}" class="dropdown-item">All</a></li>   
                 </ul>
             </div>
-
             <!-- Categories by list -->
-            <div class="dropdown d-flex justify-content-end">
+            <div class="dropdown col-2 d-flex justify-content-end">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="True">
                 Category
                 </button>
@@ -55,18 +48,71 @@
                         <li><a href="{% url 'projects_app:projects-list' %}" class="dropdown-item">All</a></li>   
                 </ul>
             </div>
-        </div>    
+            
     </nav>
 </div>
 
+<!-- New Card -->
+<h1 style="text-align: center; font-family: Garamond; font-family: Aesthetic Violet;" class="container pt-4 color2">Projects</h1>
+
+<section class="wrapper">
+  {% for project in projects %}
+  <a href="{% url 'projects_app:project-detail' project.id %}"></a>
+
+    <div class="container">
+      <div class="row">
+        
+        
+        <div class="col-sm-4 col-lg-4 m-auto">
+          <div class="card text-white card-has-bg click-col m-2" style="background-image:url({{project.photo_1.url}});">
+            <img class="card-img d-none" src="{{project.photo_1.url}}" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+            <div class="card-img-overlay d-flex flex-column">
+              <div class="card-body">
+                <small class="card-meta mb-2">{{project.title.title}}</small>
+                <h4 class="card-title mt-0 "><a class="text-white" herf="{% url 'projects_app:project-detail' project.id %}">{{project.resume|truncatechars:100}}</a></h4>
+                <small><i class="far fa-clock"></i> {{project.date}}</small>
+                <small class="far fa-clock row d-flex justify-content-end color5"><i>Tag: {{project.get_category_display}}</i></small>
+                <div class="row d-flex justify-content-center">
+                <a href="{% url 'projects_app:project-detail' project.id %}" class="btn colorbotton text-center m-auto">Read More</a>
+                </div>
+              </div>
+              <div class="container card-footer">
+                <div class="media">
+                  <img class="mr-3 rounded-circle" src="../../static/img/Universum Fiesta CyT.jpg" alt="Generic placeholder image" style="max-width:50px">
+                  <div class="media-body col-8">
+                    <h6 class="my-0 text-white d-block">Aarón Juárez</h6>
+                    <small>Contact me</small> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {% empty %}
+        <h3 style="color: brown; font-family: Aesthetic Violet;" class="container row d-flex justify-content-center m-3">There aren't results</h3>
+        {% endfor %}
+
+        
+
+  
+      </div>
+  
+    </div>
+    </a>
+
+  </section>
+  <br>
+
 <!-- Projects realized list -->
+<!--
 <div>
     <h1 style="text-align: center; font-family: Garamond; font-family: Aesthetic Violet;" class="container pt-4 color2">Projects</h1>
 
     {% for project in projects %}
 
     <div class="p-3 container d-flex">
-            <article class=" card d-flex justify-content-center shadow" style="width: 45em; margin: auto;">
+            <article class=" card d-flex justify-content-center shadow color1back" style="width: 45em; margin: auto;">
                 <div class="card-body row">
                     <h5 class="card-title col-4 rounded color1back color1" style="font-family: Aesthetic Violet;">{{project.title.title}}</h5>
                     <img src="{{project.photo_1.url}}" class="card-img-bottom col-8 image-fluid" style="border-radius: 5em;" width="1080" height="320">
@@ -75,8 +121,9 @@
                     <p class="card-text col-9 m-2" style="text-align: justify;">{{project.resume| truncatechars:150}}</p>
                     <p class="card-text col-2 color5back m-3" style="border-radius: 20px;">Tag: <i>{{project.get_category_display}}</i></p>
                 </div>
-                    
-                    <a href="{% url 'projects_app:project-detail' project.id %}" class="btn colorbotton d-flex justify-content-center col-3 m-auto">Read More</a>
+                <div class="row d-flex justify-content-center">
+                    <a href="{% url 'projects_app:project-detail' project.id %}" class="btn colorbotton text-center col-3 m-3">Read More</a>
+                </div>
                
             </article>
     </div>
@@ -84,9 +131,7 @@
     {% empty %}
     <h3 style="color: brown; text-align: center; padding: 20px; font-family: Aesthetic Violet;">There aren't results</h3>
     {% endfor %}
-    <div class="container alert color3back col-3" role="alert">
-        A simple primary alert—check it out!
-    </div>
+    -->
     
     <!-- Pagination -->
     <nav aria-label="..."  class="container d-flex justify-content-center">
@@ -131,6 +176,7 @@
 
         </ul>
     </nav>
+    
 
 {% include 'includes/footer.html' %}
 

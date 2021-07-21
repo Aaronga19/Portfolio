@@ -4,7 +4,7 @@
 
 
 {% block title %}
-    {{projects.title}}
+    {{projects.title.title}}
 {% endblock title %}
 
 
@@ -12,13 +12,22 @@
   {% include 'includes/header.html' %}
   <div class="container">
     
-    <div class="col-12 d-flex"><h1>{{projects.title}}</h1></div>
+    <div class="col-12 m-3 p-2 color1 color3back d-flex justify-content-center " style="border-radius: 20px;"><h1>{{projects.title.title}}</h1></div>
+    
     <div class="row">
-      <div class="col-9"><li>{{projects.get_category_display}}</li></div>
-      <div class="col-3"><ul>{{projects.date}}</ul></div>
+      <div class="col-8 m-1"><li>{{projects.get_category_display}}</li></div>
+
+      <div class="col-3 m-1 font-italic text-muted"><ul>'{{projects.date}}'</ul></div>
     </div>
+
     <div><h4>{{projects.resume}}</h4></div>
-    =======================================================================================================
+    <br><br>
+    <div class="container d-flex justify-content-center "><p>
+      |=======================================|
+    </p>  
+    </div>
+    
+    <br><br><br>
     <div class="row border border-4 border-dark">
     <div class="col-8"><p>{{projects.contenido|safe}}</p></div>
 
@@ -26,19 +35,19 @@
       {% if projects.photo_1 %}
       <div><p><img src="{{projects.photo_1.url}}" height="300" width="360" class="shadow-lg mb-1 bg-body rounded"></p></div>
       {% else %}
-      <div><p><h3>No existe ningun archivo asociado</h3></p></div>
+      <div></div>
       {% endif %}
       
       {% if projects.photo_2 %}
       <div><p><img src="{{projects.photo_2.url}}" height="300" width="360" class="shadow-lg mb-1 bg-body rounded"></p></div>
       {% else %}
-      <div><p><h3>No existe ningun archivo asociado</h3></p></div>
+      <div></div>
       {% endif %}
         
       {% if projects.photo_3 %}
       <div><p><img src="{{projects.photo_3.url}}" height="300" width="360" class="shadow-lg mb-1 bg-body rounded"></p></div>
       {% else %}
-      <div><p><h3>No existe ningun archivo asociado</h3></p></div>
+      <div></div>
       {% endif %}
     </div>
   </div>
@@ -46,34 +55,42 @@
     {% if projects.video_1 %}
     <div><p><video src="{{projects.video_1.url}}" controls height="520" width="1024" class="col-12 rounded m-3"></video></p></div>
     {% else %}
-    <div><p><h3>No existe ningun archivo asociado</h3></p></div>
+    <div></div>
     {% endif %}
 
     {% if projects.video_2 %}
     <div><p><video src="{{projects.video_2.url}}" controls height="520" width="720"></video></p></div>
     {% else %}
-    <div><p><h3>No existe ningun archivo asociado</h3></p></div>
+    <div></div>
     {% endif %}
 
     <div class="col-12 d-flex justify-content-center m-2"><p>{{projects.anexos}}</p></div>
+
     <div class="col-12 d-flex justify-content-center m-2"><p><a href="{{projects.code}}" class="alert-link">Repositorio Git</a></p></div>
     
+    <!--
+      Features used
+    -->
+
     <div class="container">
       <div class="row">
-        <div class="col">
-          <h3>Lenguajes usados:</h3>
+        <div class="col-4">
+          <h3>Languages used:</h3>
           {% for language in projects.languages.all %}
               <li>{{language.name}}</li>
           {% endfor %}
         </div>
-        <div class="col">
-          <h3>Frameworks usados:</h3>
+        <div class="col-4">
+          <h3>Frameworks used:</h3>
           {% for framework in projects.frameworks.all %}
             <li>{{framework.name}}</li>
           {% endfor %}  
         </div>
-        <div class="col">
-          <h3>Hardware usado:</h3>
+        <div class="col-4">
+          <h3>Hardware used:</h3>
+          {% for harware in projects.hardware.all %}
+            <li>{{hardware.name}}</li>
+          {% endfor %}  
         </div>
       </div>
     </div>
