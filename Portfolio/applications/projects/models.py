@@ -8,6 +8,27 @@ from .managers import ProjectsManager
 
 # Create your models here.
 
+class hardware(models.Model):
+    """Model definition for Hardware."""
+
+    # TODO: Define fields here
+    name = models.CharField(
+        'nombre', 
+        max_length=20,
+        unique=True,
+        blank=False, 
+        null=False
+        )
+    class Meta:
+        """Meta definition for Hardware."""
+
+        verbose_name = 'Hardware'
+        verbose_name_plural = 'Hardware'
+
+    def __str__(self):
+        """Unicode representation of Hardware."""
+        return f"{self.id} | {self.name}"
+
 class languages(models.Model):
     """Model definition for Languages."""
 
@@ -151,6 +172,9 @@ class projects(models.Model):
     languages = models.ManyToManyField(languages)
 
     frameworks = models.ManyToManyField(framework)
+
+    hardware = models.ManyToManyField(hardware)
+
 
     public = models.BooleanField(
         "Public", 

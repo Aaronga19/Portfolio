@@ -4,3 +4,20 @@ Portfolio/secret.json
 Portfolio/media
 practice.py
 Portfolio/applications/flask
+
+# Archivos inecesarios de compartir
+
+Portfolio/applications/home/migrations
+Portfolio/applications/home/__pycache__
+
+Portfolio/applications/projects/migrations
+Portfolio/applications/projects/__pycache__
+
+Portfolio/applications/users/migrations
+Portfolio/applications/users/__pycache__
+
+Portfolio/Portfolio/settings/__pycache__
+
+
+
+
