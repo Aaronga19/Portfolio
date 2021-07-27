@@ -1,54 +1,39 @@
 <header>
     <!-- Bootstrap Static Header -->
   <div style="background: url(../../static/img/wallpapert_tec.jpg)" class="jumbotron bg-cover text-white">
-    <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="border-radius: 20px; width: 80%; margin: auto;">
-        <!-- Container wrapper -->
-        <div class="container-fluid">
-          <!-- Toggle button -->
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-mdb-toggle="collapse"
-                data-mdb-target="#navbarCenteredExample"
-                aria-controls="navbarCenteredExample"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
-            <i class="fas fa-bars"></i>
-            </button>
+    
+    <!-- Nav -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-auto container-fluid justify-content-center" style="border-radius: 20px; width: 80%;">
+        <a class="navbar-brand" href="#" style="font-family: Aesthetic Violet;">
+          <img src="../../static/img/portfoliored.svg" width="30" height="30" class="d-inline-block align-top" title="portfolio">
+          Porfolio
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
       
-          <!-- Collapsible wrapper -->
-          <div
-            class="collapse navbar-collapse justify-content-center"
-            id="navbarCenteredExample"
-          >
-            <!-- Left links -->
-            <ul class="nav navbar-nav mb-2 mb-lg-0">
-              <li class="nav-item ">
-                <a class="nav-link {% if request.path == '/' %}active{% endif %} " href="{% url 'home_app:home_page' %}" style="font-family: Aesthetic Violet;">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link {% if request.path == '/projects/' %}active{% endif %}" href="{% url 'projects_app:projects-list' %}" style="font-family: Aesthetic Violet;">Projects</a>
-              </li>
-              <!-- Navbar dropdown -->
-                <li class="nav-item ">
-                    <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="{% url 'home_app:about_me' %}" style="font-family: Aesthetic Violet;">About Me</a>           
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {% if request.path == '/contact/' %}active{% endif %}" href="{% url 'users_app:contact' %}" tabindex="-1" aria-disabled="false" style="font-family: Aesthetic Violet;"> Contact </a>
-                </li>
-            </ul>
-            <!-- Left links -->
-          </div>
-          <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == '/' %}active{% endif %} " href="{% url 'home_app:home_page' %}" style="font-family: Aesthetic Violet;">Home <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == '/projects/' %}active{% endif %}" href="{% url 'projects_app:projects-list' %}" style="font-family: Aesthetic Violet;">Projects <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="{% url 'home_app:about_me' %}" style="font-family: Aesthetic Violet;">About Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == '/contact/' %}active{% endif %}" href="{% url 'users_app:contact' %}" style="font-family: Aesthetic Violet;">Contact</a>
+            </li>
+          
+          </ul>
         </div>
-        <!-- Container wrapper -->
       </nav>
     <!--Titulo-->
     <div class="container py-5 text-center">
         <h1 class="display-4 font-weight-bold mainfont" style="font-family: Aesthetic Violet; color: bisque;">Aarón Juárez</h1>
-        <p class="font-italic m-3"><h4 style="color: rgb(224, 191, 150);">Data Scientist & Backend Developer.</h4></p>
+        <p class="font-italic m-3"><h4 style="color: rgb(224, 191, 150);">Backend Developer & Data Scientist.</h4></p>
         <p class="font-italic"><i style="color: rgb(224, 191, 150);">Une phrase trés connu</i>
             <!--<a href="https://www.unam.mx/" class="text-white" style="font-family: Aesthetic Violet; color: bisque;">
                 <p>

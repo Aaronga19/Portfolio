@@ -15,9 +15,9 @@
     <div class="col-12 m-3 p-2 color1 color3back d-flex justify-content-center " style="border-radius: 20px;"><h1>{{projects.title.title}}</h1></div>
     
     <div class="row">
-      <div class="col-8 m-1"><li>{{projects.get_category_display}}</li></div>
+      <div class="col-5 col-md-8 m-1"><li>{{projects.get_category_display}}</li></div>
 
-      <div class="col-3 m-1 font-italic text-muted"><ul>'{{projects.date}}'</ul></div>
+      <div class="col-5 col-md-3 m-1 font-italic text-muted"><ul>'{{projects.date}}'</ul></div>
     </div>
 
     <div><h4>{{projects.resume}}</h4></div>
@@ -29,23 +29,23 @@
     
     <br><br><br>
     <div class="row border border-4 border-dark">
-    <div class="col-8"><p>{{projects.contenido|safe}}</p></div>
+    <div class="col-md-8"><p>{{projects.contenido|safe}}</p></div>
 
-    <div class="col-4 m-0">
+    <div class="col-md-4 m-0">
       {% if projects.photo_1 %}
-      <div><p><img src="{{projects.photo_1.url}}" height="300" width="360" class="shadow-lg mb-1 bg-body rounded"></p></div>
+      <div><p><img src="{{projects.photo_1.url}}" height="300" width="360" class="shadow-lg mb-1 bg-body rounded img-fluid" title="photo_1"></p></div>
       {% else %}
       <div></div>
       {% endif %}
       
       {% if projects.photo_2 %}
-      <div><p><img src="{{projects.photo_2.url}}" height="300" width="360" class="shadow-lg mb-1 bg-body rounded"></p></div>
+      <div><p><img src="{{projects.photo_2.url}}" height="300" width="360" class="shadow-lg mb-1 bg-body rounded img-fluid" title="photo_2"></p></div>
       {% else %}
       <div></div>
       {% endif %}
         
       {% if projects.photo_3 %}
-      <div><p><img src="{{projects.photo_3.url}}" height="300" width="360" class="shadow-lg mb-1 bg-body rounded"></p></div>
+      <div><p><img src="{{projects.photo_3.url}}" height="300" width="360" class="shadow-lg mb-1 bg-body rounded img-fluid" title="photo_3"></p></div>
       {% else %}
       <div></div>
       {% endif %}
@@ -74,22 +74,28 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-4">
+        <div class="col col-md-4">
           <h3>Languages used:</h3>
           {% for language in projects.languages.all %}
-              <li>{{language.name}}</li>
+          <ul>
+            <li><em>{{language.name}}</em></li>
+          </ul>
           {% endfor %}
         </div>
-        <div class="col-4">
+        <div class="col col-md-4">
           <h3>Frameworks used:</h3>
           {% for framework in projects.frameworks.all %}
-            <li>{{framework.name}}</li>
+          <ul>
+            <li><em>{{framework.name}}</em></li>
+          </ul>            
           {% endfor %}  
         </div>
-        <div class="col-4">
+        <div class="col col-md-4">
           <h3>Hardware used:</h3>
           {% for hardware in projects.hardware.all %}
-            <li>{{hardware.name}}</li>
+          <ul>
+            <li><em>{{hardware.name}}</em></li>
+          </ul>
           {% endfor %}  
         </div>
       </div>

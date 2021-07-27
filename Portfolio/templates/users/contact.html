@@ -9,54 +9,53 @@
 
 {% block content %}
 {% include 'includes/header.html' %}
-    <form action="" method="POST" class="container" style="background-color: gray; border-radius: 10px; margin: auto; border-color: indigo; border: 10px;">{% csrf_token %}
-        <div class="row d-flex justify-content-center align-items-center ">
+    <form method="POST" class="container" style="background-color: gray; border-radius: 10px; border-color: indigo; border: 20ox;">{% csrf_token %}
 
-                <div class="col-xxl-1" style="margin: 10px;">
-                    <p>Name:</p>
-                </div>
-                <div class="col-xxl-5" style="margin: 10px;" >
-                    {{form.name}}
-                </div>
-                <div class="col-xxl-1" style="margin: 10px;">
-                    <p>E-mail:</p>
-                </div>
-                <div class="col-xxl-5" style="margin: 10px;">
-                    {{form.email}}
-                </div>
-        </div>
-        <div class="row d-flex justify-content-center align-items-center ">
-            <div class="col-xxl-1" style="margin: 10px;">
-                <p>Phone:</p>
-            </div>
-            <div class="col-xxl-2" style="margin: 10px;">
-                {{form.phone}}
-            </div>
-            <div class="col-xxl-1" style="margin: 10px;">
-                <p>Company:</p>
-            </div>
-            <div class="col-xxl-8" style="margin: 10px;">
-                {{form.company}}
-            </div>
-        </div>
-        <div class="row ">
-            <div class="col-xl-12 d-flex justify-content-center">
-                <p>Message:</p>
-            </div>
-        </div> 
         <div class="row">
-            <div class="col-xl-12 d-flex justify-content-center" style="height: 200px;">
+
+                <div class="col-md-5 col-sm-12 m-3 d-flex justify-content-center">
+                    <label class="m-1">Name:</label>
+                    <p>{{form.name}}</p>
+                </div>
+                    
+                <div class="col-md-5 col-sm-12 m-3 d-flex justify-content-center">
+                    <label class="m-1">Email:</label>
+                    <p>{{form.email}}</p>
+                </div>
+        
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-5 col-sm-12 m-3 d-flex justify-content-center">
+                <label class="m-1">Phone:</label>
+                <p>{{form.phone}}</p>
+            </div>
+                
+            <div class="col-md-5 col-sm-12 m-3 d-flex justify-content-center">
+                <label class="m-1">Company:</label>
+                <p>{{form.company}}</p>
+            </div>
+    
+        </div>
+
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-8 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Message</span>
+                </div>
                 {{form.message}}
             </div>
-        </div>  
+        </div> 
+
         <div class="row">
-            <div class="col-xl-12 d-flex justify-content-center">
-                <button type="submit" class="btn btn-outline-dark" style="margin: 10px;">Send</button>
+            <div class="col-12 d-flex justify-content-center">
+                <button type="submit" class="btn btn-outline-dark m-3">Send</button>
             </div>
         </div>
     </form>
     
-
 {% include 'includes/footer.html' %}
 
 {% endblock content %}
