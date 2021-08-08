@@ -8,13 +8,13 @@ ALLOWED_HOSTS = ['*']
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# Config for Docker
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': get_secret('DB_NAME'),
-        'USER': get_secret('USER'),
-        'PASSWORD': get_secret('PASSWORD'),
-        'HOST': 'localhost',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': "postgres",
+        'USER': "postgres",
+        'HOST': 'db_postgres',
         'PORT': '5432',
     }
 }
@@ -24,6 +24,8 @@ DATABASES = {
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR.child('static')]
+
+STATIC_ROOT = '/code/static/'
 
 # MEDIA FILES
 MEDIA_URL = '/media/'
