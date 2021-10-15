@@ -29,7 +29,7 @@ STATIC_ROOT = '/code/static/'
 
 # MEDIA FILES
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR.child('media')
+MEDIA_ROOT = '/code/media/' #BASE_DIR.child('media')
 
 # ckeditor SETTINGS
 
