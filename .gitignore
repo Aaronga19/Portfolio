@@ -12,7 +12,7 @@ Portfolio/db.sqlite3
 Portfolio/applications/home/migrations
 Portfolio/applications/home/__pycache__
 
-Portfolio/applications/projects/migrations
+Portfolio/applications/pycache
 Portfolio/applications/projects/__pycache__
 
 Portfolio/applications/users/migrations
