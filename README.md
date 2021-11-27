@@ -7,7 +7,8 @@ To run this project is necessary to have Python 3.7.1 or higher.
 This was developed with Django and Bootstrap mainly, hence, you have to install and run the portfolio with all the libraries pointed out in the _requirements_ folder 
 
 ## Currently
-_This project isn't still in a host, because it continues in develop to deploy it in Digital Ocean with Docker_
+_This project is hosted in https://aaronportfol.herokuapp.com/_
+It had some fixes about the performance in this host. So I had to use AWS S3.
 
 # View samples
 ![image](https://user-images.githubusercontent.com/66045880/136304243-d2c10446-b7cc-44dd-b050-025804dc63fd.png)
