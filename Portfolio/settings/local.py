@@ -14,8 +14,8 @@ DATABASES = {
         'NAME': settings.database_name,
         'USER': settings.database_username,
         'PASSWORD': settings.database_password,
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'HOST': settings.database_hostname,
+        'PORT': settings.database_port
     }
 }
 

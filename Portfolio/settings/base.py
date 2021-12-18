@@ -2,6 +2,8 @@ from unipath import Path
 from ..settingsglob import settings
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).ancestor(3)
+import os
+
 
 
 # SECURITY WARNING: keep the secret key used in production secret!

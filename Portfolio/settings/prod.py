@@ -1,35 +1,60 @@
 from .base import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['aaronportfol.herokuapp.com']
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# Config for Docker
+# Config with decouple
+"""import dj_database_url
+from decouple import config
+
+DATABASES = {
+    'default':dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
+
+}"""
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "postgres",
-        'USER': "postgres",
-        'HOST': 'db_postgres',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': settings.database_name,
+        'USER': settings.database_username,
+        'PASSWORD': settings.database_password,
+        'HOST': settings.database_hostname,
+        'PORT': settings.database_port
     }
 }
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
+# TO HEROKU
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR.child('static')]
 
-STATIC_ROOT = '/code/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+) 
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+]
 
 # MEDIA FILES
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/code/media/' #BASE_DIR.child('media')
+MEDIA_ROOT = BASE_DIR.child('media')
+
+# AWS S3
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3ManifestStaticStorage'
+
+AWS_ACCESS_KEY_ID = settings.aws_id
+AWS_SECRET_ACCESS_KEY = settings.aws_access
+AWS_STORAGE_BUCKET_NAME = settings.aws_name
+
+AWS_QUERYSTRING_AUTH = False
+                                                # DOCKER --- MEDIA_ROOT = '/Portfolio/media/' #MEDIA_ROOT = '/media/'
 
 # ckeditor SETTINGS
 
@@ -57,8 +82,8 @@ CKEDITOR_CONFIGS = {
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = get_secret('EMAIL')
-EMAIL_HOST_PASSWORD = get_secret('PASS_EMAIL')
+EMAIL_HOST_USER = settings.email
+EMAIL_HOST_PASSWORD = settings.pass_email
 EMAIL_PORT = 587
-# EMAIL_SUBJECT_PREFIX = '[Test mail]'
+
 

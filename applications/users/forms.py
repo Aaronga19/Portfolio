@@ -41,7 +41,7 @@ class ContactForm(forms.ModelForm):
             ),
             'message': forms.Textarea(
                 attrs={
-                'placeholder':'Let me know how can I help you ☺',
+                'placeholder':'Let me know how I can help you ☺',
                 'class':'form-control',
                 'aria-label':"With textarea",
                 }

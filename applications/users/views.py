@@ -22,10 +22,10 @@ class ContactCreateView(CreateView):
         email = self.request.POST['email']
         phone = self.request.POST['phone']
         company = self.request.POST['company']
-        message = self.request.POST['message'] + f'\n\n My phone number is: {phone} and you can keep in touch with me in {email}'
+        message = self.request.POST['message'] + f'\n\n My phone number is: {phone} and you can keep in touch with me at: {email}'
         officialMail = 'Mett Inc.'
         destiny = ["arcanmett@gmail.com"]
-        subject = f"You have just recieved a message by {name} from {company}, who want to be in contact with you"
+        subject = f"Portfolio notification: {name} from {company} "
 
         send_mail(subject, message, officialMail, destiny)
         
