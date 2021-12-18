@@ -1,0 +1,216 @@
+{% extends 'home/base_home.html' %}
+
+{% load static %}
+
+    {% block title %}
+       My carreer
+    {% endblock title %}
+
+
+{% block content %}
+{% include 'includes/header.html' %}
+
+<div class="container overflow-auto">
+  <div class="row ">
+    <!-- SCROLL -->
+    <div class="col-lg-2 p-3 color4back">
+      <nav id="aboutme" class="navbar bg-dark align-items-stretch flex-column sticky-top rounded m-0" >
+        <a class="navbar-brand d-flex justify-content-center color4" href="#"><h3 style="font-family: Aesthetic Violet;">About Me</h3></a>
+        <nav class="nav nav-pills flex-column">
+          <a class="nav-link active color5" href="#education">Education</a>
+          <nav class="nav nav-pills flex-column">
+            <a class="nav-link ml-3 my-1 color4" href="#academic">Academic</a>
+            <a class="nav-link ml-3 my-1 color4" href="#personal">Personal</a>
+          </nav>
+          <a class="nav-link color5" href="#languages">Languages</a>
+          <a class="nav-link color5" href="#skills">Skills</a>
+          <nav class="nav nav-pills flex-column">
+            <a class="nav-link ml-3 my-1 color4" href="#individuals">Individuals</a>
+            <a class="nav-link ml-3 my-1 color4" href="#colectives">Colectives</a>
+          </nav>
+          <a class="nav-link color5" href="#tools">Tools</a>
+          <nav class="nav nav-pills flex-column color5">
+            <a class="nav-link ml-3 my-1 color4" href="#codelanguage">Languages</a>
+            <a class="nav-link ml-3 my-1 color4" href="#frameworks">Frameworks</a>
+            <a class="nav-link ml-3 my-1 color4" href="#editors">Editors</a>
+          </nav>
+          <a class="nav-link color5" href="#rewards">Rewards & Recognitions</a>
+        </nav>
+      </nav>
+    </div>
+    <div class="col-lg-10">
+      
+        <h3 id="education" class="text-center m-5" style="font-family: Aesthetic Violet; font-size: 60px;">Education</h3>
+          <h5 id="academic" class="text-center m-3">Academic</h5>
+          <div class="container row">
+            <p class="col-sm-9 col-md-9"><strong>BA. Electric-Electronic Engineering by UNAM (in process to obtain the degree).</strong></p>
+            <img class="col-sm-2 col-md-2 rounded-circle z-depth-2 img-fluid" src="../../static/img/Universum Fiesta CyT.jpg"
+                      data-holder-rendered="true">
+          </div>              
+          <h5 id="personal" class="text-center m-3">Personal</h5>
+            <p>It was until finishing the degree that I started to investigate by myself more about many topics, due to I got interest in all about computer science like: <em>Artificial Inteligence</em>, <em>Internet of things</em>, <em>Web Development</em>... <i>Technology development</i> in general, but more focused in <strong>Web</strong> and <strong>Data Science</strong>.
+            <br><br> Thus, I have investigated and worked with Backend Development and Data Science through courses in <tt>Udemy</tt>, <tt>Coursera</tt>, <tt>Cisco Networking Academy</tt> , among others. Also I've looked for info in tutorials, forums and above all I've learned by means of the <em><strong>documentation</strong></em>.
+            <br><br> Therefore I've had the capability to combine my knowledge in hardware with these other skills to achieve to develop projects.</p>
+        
+            <br><br><br>
+            
+            <!--
+              Languages
+            -->
+
+        <h3 id="languages"  class="text-center m-5" style="font-family: Aesthetic Violet; font-size: 60px;">Languages</h3>
+          <div class="container row">
+          <!-- English Section -->
+            <div class="col-4 col-sm-2 col-md-4">
+              <h5 style="font-family: Aesthetic Violet;" class="d-flex justify-content-end">English</h5>
+            </div>
+            <div class="col-4 col-sm-6 col-md-4 d-flex justify-content-center">
+              <i class="fa fa-star"></i>            
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>  
+            <div class="col-4 col-sm-4 col-md-4">
+              <h5><tt>(B1)</tt> <span class="badge badge-info" >In Progress</span></h5>
+            </div> 
+          </div>
+          <!-- French Section -->
+          <div class="container row">
+            <div class="col-4 col-sm-2 col-md-4">
+              <h5 style="font-family: Aesthetic Violet;" class="d-flex justify-content-end">French</h5>
+            </div>
+            <div class="col-4 col-sm-6 col-md-4 d-flex justify-content-center">
+              <i class="fa fa-star"></i>            
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div> 
+            <div class="col-4 col-sm-4 col-md-4">
+              <h5><tt>(A2)</tt> <span class="badge badge-info" >In Progress</span></h5>
+            </div> 
+          </div>
+          <!-- Spanish Section-->
+          <div class="container row">
+            <div class="col-4 col-sm-2 col-md-4">
+              <h5 style="font-family: Aesthetic Violet;" class="d-flex justify-content-end">Spanish</h5>
+            </div>
+            <div class="col-4 col-sm-6 col-md-4 d-flex justify-content-center">
+              <i class="fa fa-star"></i>            
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i> 
+            </div>  
+            <div class="col-4 col-sm-4 col-md-4">
+              <h5><span class="badge badge-info" >Native</span></h5>
+            </div> 
+          </div>
+
+
+            <br><br><br>
+
+          <!--
+            Skills
+          -->
+
+        <h3 id="skills"  class="text-center m-5" style="font-family: Aesthetic Violet; font-size: 60px;">Skills</h3>
+          <h5 id="individuals" class="text-center m-3">Professionals</h5>
+          <div>
+            <p>    Solve problems.    Develop science projects.    
+              Teamwork skills.    Logical thinking.  Git/Github knowledge.</p>
+          </div>
+
+          <h5 id="colectives" class="text-center m-3">Personals</h5>
+            <p>    Proactive.    Involved.   Leadership capability.    Constant growth.
+              Disciplined.                 Creative.                    Entrepreneur.</p> 
+            <br><br><br>
+
+          <!--
+            Tools
+          -->
+
+        <h3 id="tools"  class="text-center m-5" style="font-family: Aesthetic Violet; font-size: 60px;">Tools</h3>
+
+          <h5 id="codelanguage" class="text-center m-3">Languages</h5><br>
+          <div class="container text-center ">
+            <img src="../../static/img/logos/html5.png" class="img-fluid" height="70" width="70" title="html5"> 
+            <img src="../../static/img/logos/css.png" class="img-fluid" height="80" width="80">
+            <img src="../../static/img/logos/js.png" class="img-fluid" height="100" width="100">
+          </div>
+          <div class="row d-flex justify-content-center">
+
+            <img src="../../static/img/logos/python.png" class="img-fluid" height="100" width="100">
+            <img src="../../static/img/logos/r.png" class="img-fluid" height="120" width="150">
+            <img src="../../static/img/logos/c++.png" class="img-fluid" height="100" width="100">
+            <img src="../../static/img/logos/postgresql.png" class="img-fluid" height="100" width="100">
+          </div>
+
+            <div class="row d-flex justify-content-end m-3">
+              <p>
+                Icons made by <a href="https://www.freepik.com" title="Freepik"> Freepik </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+              </p> 
+            </div> 
+
+          <h5 id="frameworks" class="text-center m-3">Frameworks & Libraries</h5>
+
+            <div class="text-center m-4">
+              <img src="../../static/img/logos/django.png" class="img-fluid" height="100" width="100">
+              <img src="../../static/img/logos/flask.png" class="img-fluid" height="100" width="100">
+              <img src="../../static/img/logos/bootstrap.png" class="img-fluid" height="100" width="100">
+            </div>
+            
+            
+            <div class="text-center">
+              <img src="../../static/img/logos/anaconda.png" class="img-fluid" height="100" width="100">
+              <img src="../../static/img/logos/scikitlearn.png" class="img-fluid" height="100" width="100">
+              <img src="../../static/img/logos/raspberry.png" class="img-fluid" height="100" width="100">
+            </div>
+
+
+          <h5 id="editors" class="text-center m-3">Editors</h5>
+          <br>
+          <div class="text-center">
+            <img src="../../static/img/logos/vscode.png" class="img-fluid" height="100" width="100">
+            <img src="../../static/img/logos/rstudio.png" class="img-fluid" height="100" width="100">
+            <img src="../../static/img/logos/pycharm.png" class="img-fluid" height="100" width="100">
+          </div>
+
+          <div class="row d-flex justify-content-center">
+            <img src="../../static/img/logos/vim.png" class="img-fluid" height="100" width="100">
+          </div>
+
+          <!--
+            Rewards
+          -->
+
+        
+        <h3 id="rewards"  class="text-center m-5" style="font-family: Aesthetic Violet; font-size: 60px;">Rewards and Recognitions</h3>
+
+          <figure class="figure border rounded-top border-dark shadow">
+            <img src="https://www.gaceta.unam.mx/wp-content/uploads/2019/10/Cabezal_GacetaUNAM-s.jpg" class="figure-img img-fluid rounded" alt="..." height="320" width="1024">
+              <figcaption class="figure-caption text-right"><a href="https://www.dgcs.unam.mx/boletin/bdboletin/2021_569.html">Participation in GACETA UNAM 2021</a></figcaption>
+          </figure>
+
+          <figure class="figure border rounded-top border-dark shadow">
+            <img src="../../static/img/Feciem Aaron.jpg" class="figure-img img-fluid rounded" alt="...">
+              <figcaption class="figure-caption text-right">Recognition by FECIEM 2019</figcaption>
+          </figure>
+      </div>
+  </div>
+</div>
+
+<div>
+
+
+</div>
+<div>
+
+
+</div>
+<div>
+
+
+</div>
+{% include 'includes/footer.html' %}
+
+{% endblock content %}
+    

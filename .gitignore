@@ -1,28 +1,22 @@
 # Archivos confidenciales
 
-Portfolio/secret.json
-Portfolio/media
+secret.json
+media
 practice.py
-Portfolio/applications/flask
-Portfolio/db.sqlite3
+applications/flask
+db.sqlite3
 
+# Portfolio/docker-compose.yml
+# Portfolio/Dockerfile
 
 # Archivos inecesarios de compartir
 
-Portfolio/applications/home/migrations
-Portfolio/applications/home/__pycache__
+migrations
+__pycache__
 
-Portfolio/applications/projects/migrations
-Portfolio/applications/projects/__pycache__
+# Entorno virtual
 
-Portfolio/applications/users/migrations
-Portfolio/applications/users/__pycache__
-
-Portfolio/Portfolio/settings/__pycache__
-
-
-__pycache__/
-
+venv
 
 # Created by https://www.toptal.com/developers/gitignore/api/django
 # Edit at https://www.toptal.com/developers/gitignore?templates=django

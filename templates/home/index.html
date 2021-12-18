@@ -1,0 +1,40 @@
+{% extends 'home/base_home.html' %}
+
+{% load static %}
+
+    {% block title %}
+        Aaron's portfolio
+    {% endblock title %}
+
+
+{% block content %}
+{% include 'includes/header.html' %}
+    <!-- For Demo Purpose -->
+    <div class="text-center">
+        <div class="col-md-20 mb-10">
+    
+            <img class="rounded-circle z-depth-2" alt="500x500" src="../../static/img/Universum Fiesta CyT.jpg"
+              data-holder-rendered="true">
+    
+        </div>
+    </div>
+    <div class="container py-5 ">
+        <h2 class="h3 font-weight-bold text-center">CDMX, Mexico.</h2>
+        <div class="row">
+            <div class="col-lg-10 mb-4">
+                <br><p class="font-italic text-muted">My name is Aarón Juárez and I was born in Mexico City. Currently I'm 25 years old and I like spending my time learning to develop technoligical projects by myself and in a team.</p>
+                <br><p class="font-italic text-muted">When I was about fifteen I was so interested in electronical devices so by then I decieded to study something related to this field. As I was learning I noticed that there was a big tech world and the stuffs became more and more interesting. </p>
+            </div>
+            <div class="col-lg-8 mb-3">
+                <p class="container col-12 font-italic text-muted text-justify">I like working in a team because we can learn so much from each others and you are able to help to others as well. </p>
+                <blockquote class="col-12 font-italic text-muted text-justify">♪ I'm a music lover too, for me music is a way of expression pretty beautiful. Writing music is one of my favorite hobbies. ♫ </blockquote>
+            </div>
+        </div>
+    </div>
+{% include 'includes/footer.html' %}
+
+{% endblock content %}
+    
+
+    
+    
