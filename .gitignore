@@ -14,8 +14,8 @@ db.sqlite3
 migrations
 __pycache__
 
-# Entorno virtual
 
+# Entorno virtual
 venv
 
 # Created by https://www.toptal.com/developers/gitignore/api/django

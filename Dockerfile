@@ -1,17 +1,11 @@
-FROM python:3.7.9
+FROM python:3.7
+
+ENV PYTHONUNBUFFERED 1
+RUN mkdir /code
 
 WORKDIR /code
+COPY . /code/
 
-#ENV
+RUN pip install -r requirements/prod.txt
 
-#ENV
-
-RUN apk add --no-cache gcc musl-dev linux-headers
-
-COPY requirements.txt requirements.txt 
-
-RUN pip install -r requirements.txt
-
-COPY . . 
-
-CMD ["python", "manage.py", "runserver"]
+CMD ["gunicorn", "-c", "config/gunicorn/conf.py", "--bind", ":8000", "--chdir", "Portfolio", "Portfolio.wsgi:application"]
