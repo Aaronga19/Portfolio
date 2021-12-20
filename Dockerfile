@@ -8,10 +8,10 @@ WORKDIR /Portfolio
 
 COPY requirements/prod.txt ./
 
-RUN pip install --no-cache-dir -r requirements/prod.txt
+RUN pip install --no-cache-dir -r prod.txt
 
 COPY . /Portfolio/
 
 
-CMD ["gunicorn", "-c", "config/gunicorn/conf.py", "--bind", ":8000", "--chdir", "Portfolio", "Portfolio.wsgi:application"]
+CMD ["gunicorn", "-c", "config/gunicorn/conf.py", "--bind", ":5000", "--chdir", "Portfolio", "Portfolio.wsgi:application"]
 
