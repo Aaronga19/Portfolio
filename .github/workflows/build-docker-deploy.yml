@@ -44,8 +44,10 @@ jobs:
         run: python -m pip install --upgrade pip
       - name: Installing dependencies
         run: pip install -r requirements.txt
-      - name: testing ends
-        run: echo Testing has finished   
+      - name: testing 
+        run: |
+        python manage.py test
+        echo Testing has finished 
       # - name: Test with pytest
       #   run: |
       #     pip install pytest
