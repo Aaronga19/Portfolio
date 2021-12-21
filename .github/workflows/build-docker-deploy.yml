@@ -76,7 +76,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./Dockerfile
+          file: ./Portfolio/Dockerfile
           push: true
           tags: ${{secrets.DOCKER_HUB_USERNAME}}/portfolio:latest
           cache-from: type=local,src=/tmp/.buildx-cache
