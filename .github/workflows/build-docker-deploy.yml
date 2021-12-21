@@ -57,7 +57,7 @@ jobs:
       # DOCKER (image)
   Docker:
     runs-on: ubuntu-latest
-    needs: [build]
+    needs: [build-app]
     environment:
       name: docker
     steps:
