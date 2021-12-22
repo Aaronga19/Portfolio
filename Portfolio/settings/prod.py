@@ -1,23 +1,23 @@
 from .base import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['aaronportfol.herokuapp.com']
+ALLOWED_HOSTS = ['aaronportfol.herokuapp.com', 'localhost']
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 # Config with decouple
-"""import dj_database_url
-from decouple import config
+# import dj_database_url
+# from decouple import config
 
-DATABASES = {
-    'default':dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
+# DATABASES = {
+#     'default':dj_database_url.config(
+#         default=config(settings.database_url)
+#     )
 
-}"""
+# }
 
 DATABASES = {
     'default': {
